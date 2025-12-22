@@ -1,0 +1,6 @@
+a aa aaa 1 10 11 100 101
+b bb bbb 2 20 22 200 202
+c cc ccc 3 30 33 300 303
+d d d 4 4 4 4 4
+vasya vasyevich vasyliev 5 4 3 4 5
+2 2 2 2 2 2 2 2

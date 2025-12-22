@@ -1,0 +1,9 @@
+login <USERNAME> <PASSWORD>
+    Login to USERNAME's database.
+
+register <USERNAME> <PASSWORD>
+    Register new USERNAME with PASSWORD and his corresponding database.
+
+exit
+    Exit program.
+

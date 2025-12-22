@@ -1,0 +1,15 @@
+c cc ccc 3 30 33 300 303
+bc bc cab 9 20 22 200 202
+bb bb abb 4 20 22 200 202
+ba ba bca 8 20 22 200 202
+aa cc acb 1 10 11 100 101
+ab ca abc 2 10 11 100 101
+a aa aaa 1 10 11 100 101
+b_new bb_new bbb_new 10 9 10 11 12
+a a a 2 9 9 9 9
+name sername lastname 5 6 7 8 9
+vasya vasyevich vasyliev 5 4 3 4 5
+d d d 4 4 4 4 4
+user1 user1Sername user1Lastname 3 3 3 3 3
+2 2 2 2 2 2 2 2
+ы ку цугш 2 4 5 6 7

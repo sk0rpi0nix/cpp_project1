@@ -1,0 +1,9 @@
+aa cc acb 1 10 11 100 101
+ab ca abc 2 10 11 100 101
+ac cb bac 3 10 11 100 101
+ba ba bca 8 20 22 200 202
+bb bb abb 4 20 22 200 202
+bc bc cab 9 20 22 200 202
+ca ca bcc 5 30 33 300 303
+cb cc acc 6 30 33 300 303
+cc cb ccb 7 30 33 300 303
