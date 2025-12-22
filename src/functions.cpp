@@ -124,12 +124,17 @@ void cmd_update(string data) {
     }
 
     int id = stoi(lines.Data[0]);
+    // cout << id << endl;
+    // User old_user = getUser(id);
     int index = -1;
     for (int i = 0;i < users.size(); i++) {
+        // cout << "d: " << users[i].ID << endl;
         if (users[i].ID == id) {
             index = i;
             break;
         }
+    }
+    if (index == -1) {
         cout << "No such user." << endl;
         return;
     }
@@ -185,7 +190,7 @@ void cmd_get(string data) {
         to_string(user.Marks[3]);
     
     const vector<string> header = {
-        "ID","Name","Surname","Last name", "Course", "Marks"
+        "ID","Name","Middle name","Last name", "Course", "Marks"
     };
 
     const vector<size_t> cellSizes = {
@@ -252,7 +257,7 @@ void cmd_list(string data) {
     // HEADER
     // ---------
     const vector<string> header = {
-        "ID","Name","Surname","Last name", "Course", "Marks"
+        "ID","Name","Middle name`","Last name", "Course", "Marks"
     };
 
     const vector<size_t> cellSizes = {
@@ -359,6 +364,13 @@ void cmd_reg(string data) {
         cout << lines.Data[0] << endl;
         return;
     }
+    for (UserCred userCred : userCreds) {
+        if (userCred.Username == lines.Data[0]) {
+            cout << "This username is already taken" << endl;
+            return;
+        };
+    };
+
     addUserToFile(lines.Data[0], lines.Data[1]);
     addUserCred(data);
 

@@ -103,7 +103,7 @@ void binaryWrite(string path) {
 
         string line =  
             user.Name+" " + 
-            user.Sername+" " + 
+            user.Surname+" " + 
             user.Lastname+" " + 
             to_string(user.Course)+" " +
             marks;
@@ -189,10 +189,10 @@ void binaryRead(string path) {
 //     outfile.write(reinterpret_cast<const char*>(&user.ID), sizeof(user.ID));
 
 //     const size_t name_l = user.Name.size();
-//     const size_t sername_l = user.Sername.size();
+//     const size_t sername_l = user.Surname.size();
 //     const size_t lastname_l = user.Lastname.size();
 //     outfile.write(reinterpret_cast<const char*>(&user.Name), sizeof(name_l));
-//     outfile.write(reinterpret_cast<const char*>(&user.Sername), sizeof(sername_l));
+//     outfile.write(reinterpret_cast<const char*>(&user.Surname), sizeof(sername_l));
 //     outfile.write(reinterpret_cast<const char*>(&user.Lastname), sizeof(lastname_l));
     
     
@@ -213,8 +213,8 @@ void binaryRead(string path) {
 
 //     size_t sername_len = 0;
 //     infile.read(reinterpret_cast<char*>(&sername_len), sizeof(sername_len));
-//     user.Sername.resize(sername_len);
-//     infile.read(&user.Sername[0], sername_len);
+//     user.Surname.resize(sername_len);
+//     infile.read(&user.Surname[0], sername_len);
 
 //     size_t lastname_len = 0;
 //     infile.read(reinterpret_cast<char*>(&lastname_len), sizeof(lastname_len));
