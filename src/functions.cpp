@@ -20,7 +20,7 @@ using namespace std;
 // struct User {
 //     int ID;
 //     string Name;
-//     string Sername;
+//     string Surname;
 //     string Lastname;
 //     int Course;
 //     vector<int> Marks;
@@ -81,7 +81,7 @@ const int marksWidth = 20;
 int average(array<int,4> marks) {
     int sum = 0;
     for (int num : marks) {
-        sum += num;
+        sum += num; 
     };
     return sum;
 }
@@ -97,7 +97,7 @@ void cmd_add(string data) {
     User new_user = User{
         ID: id_buff,
         Name: lines.Data[0],
-        Sername: lines.Data[1],
+        Surname: lines.Data[1],
         Lastname: lines.Data[2],
         Course: stoi(lines.Data[3]),
         Marks: array<int,4>{}
@@ -115,7 +115,7 @@ void cmd_add(string data) {
     return;
 }
 
-// "Name Sername Lastname Course Mark1 Mark2 Mark3 Mark4"
+// "Name Surname Lastname Course Mark1 Mark2 Mark3 Mark4"
 void cmd_update(string data) {
     SplittedData lines = checkArguments(data, 9);
     if (!lines.Valid) {
@@ -134,12 +134,12 @@ void cmd_update(string data) {
         return;
     }
 
-    int user_id = stoi(lines.Data[0]);
+    // int user_id = stoi(lines.Data[0]);
     User new_user = User{
         // ID: lines.Data[0] == "_" ? : stoi(lines.Data[0]),
-        ID: stoi(lines.Data[0]),
+        ID: id,
         Name: lines.Data[1] != "_" ? lines.Data[1] : users[index].Name,
-        Sername: lines.Data[2] != "_" ? lines.Data[2] : users[index].Sername,
+        Surname: lines.Data[2] != "_" ? lines.Data[2] : users[index].Surname,
         Lastname: lines.Data[3] != "_" ? lines.Data[3] : users[index].Lastname,
         Course: lines.Data[4] != "_" ? stoi(lines.Data[4]) : users[index].Course,
         Marks: array<int,4>{}
@@ -147,7 +147,7 @@ void cmd_update(string data) {
     for (int i = 5; i < 9;i++) {
         new_user.Marks[i-5] = lines.Data[i] != "_" ? stoi(lines.Data[i]) : users[index].Marks[i-5];
     }
-    int i = updateUser(stoi(lines.Data[0]), new_user);
+    int i = updateUser(id, new_user);
     cout << "updated user " << "'" + new_user.Name + "'" << endl;
     return;
 }
@@ -185,7 +185,7 @@ void cmd_get(string data) {
         to_string(user.Marks[3]);
     
     const vector<string> header = {
-        "ID","Name","Sername","Last name", "Course", "Marks"
+        "ID","Name","Surname","Last name", "Course", "Marks"
     };
 
     const vector<size_t> cellSizes = {
@@ -201,7 +201,7 @@ void cmd_get(string data) {
         string(marksWidth, '-') + string(10,'-');
 
     const vector<string> userData = {
-        to_string(user.ID), user.Name, user.Sername, user.Lastname, to_string(user.Course), marks
+        to_string(user.ID), user.Name, user.Surname, user.Lastname, to_string(user.Course), marks
     };
 
     printTableRow(header, cellSizes);
@@ -211,7 +211,7 @@ void cmd_get(string data) {
     // cout << left
     //     << setw(idWidth) << "ID" << '|'
     //     << setw(nameWidth) << "Name" << '|'
-    //     << setw(sernameWidth) << "Sername" << '|'
+    //     << setw(sernameWidth) << "Surname" << '|'
     //     << setw(lastnameWidth) << "Last name" << '|'
     //     << setw(courseWidth) << "Course" << '|'
     //     << setw(marksWidth) << "Marks"
@@ -229,13 +229,13 @@ void cmd_get(string data) {
     // cout << left
     //     << setw(idWidth) << user.ID << '|'
     //     << setw(nameWidth) << user.Name << '|'
-    //     << setw(sernameWidth) << user.Sername << '|'
+    //     << setw(sernameWidth) << user.Surname << '|'
     //     << setw(lastnameWidth) << user.Lastname << '|'
     //     << setw(courseWidth) << user.Course << '|'
     //     << setw(marksWidth) << marks
     //     << endl;
 
-    // cout << (user.ID + user.Name + user.Sername, user.Lastname + user.Course + user.Marks);
+    // cout << (user.ID + user.Name + user.Surname, user.Lastname + user.Course + user.Marks);
     return;
 }
 
@@ -252,7 +252,7 @@ void cmd_list(string data) {
     // HEADER
     // ---------
     const vector<string> header = {
-        "ID","Name","Sername","Last name", "Course", "Marks"
+        "ID","Name","Surname","Last name", "Course", "Marks"
     };
 
     const vector<size_t> cellSizes = {
@@ -279,7 +279,7 @@ void cmd_list(string data) {
     // cout << left
     //     << setw(idWidth) << "ID" << '|'
     //     << setw(nameWidth) << "Name" << '|'
-    //     << setw(sernameWidth) << "Sername" << '|'
+    //     << setw(sernameWidth) << "Surname" << '|'
     //     << setw(lastnameWidth) << "Last name" << '|'
     //     << setw(courseWidth) << "Course" << '|'
     //     << setw(marksWidth) << "Marks"
@@ -302,7 +302,7 @@ void cmd_list(string data) {
             to_string(user.Marks[3]);
         
         const vector<string> userData = {
-            to_string(user.ID), user.Name, user.Sername, user.Lastname, to_string(user.Course), marks
+            to_string(user.ID), user.Name, user.Surname, user.Lastname, to_string(user.Course), marks
         };
 
 
@@ -314,7 +314,7 @@ void cmd_list(string data) {
         // cout << left
         //     << setw(idWidth) << user.ID << '|'
         //     << setw(nameWidth) << user.Name << '|'
-        //     << setw(sernameWidth) << user.Sername << '|'
+        //     << setw(sernameWidth) << user.Surname << '|'
         //     << setw(lastnameWidth) << user.Lastname << '|'
         //     << setw(courseWidth) << user.Course << '|'
         //     << setw(marksWidth) << marks
@@ -450,7 +450,7 @@ void write(string path) {
     for (User user: users) {
         string line = 
             user.Name + " " +
-            user.Sername + " " +
+            user.Surname + " " +
             user.Lastname + " " +
             to_string(user.Course) + " " + 
             to_string(user.Marks[0])+" "+
@@ -508,7 +508,7 @@ void sessionHelp(string data) {
     //     <<
     //     "sort -> Sort users by FIELD_ID\n"
     //     "   2 arguments: FIELD_ID {acs|desc}\n"
-    //     "   FIELD_ID - (ID - 1 | Name - 2 | Sername - 3 | LastName - 4 | Course 5)\n\n"
+    //     "   FIELD_ID - (ID - 1 | Name - 2 | Surname - 3 | LastName - 4 | Course 5)\n\n"
     //     <<
     //     "files -> Work with files\n"
     //     "   3 agruments: {bin|text} {read|write} FILE_PATH\n\n"
@@ -545,7 +545,7 @@ void loginHelp(string data) {
 // Add user
 int addUser(User user) {
     users.push_back(user);
-    // cout << "user ", user.ID, user.Name, user.Sername, user.Lastname, user.Course, user.Marks, "'n";
+    // cout << "user ", user.ID, user.Name, user.Surname, user.Lastname, user.Course, user.Marks, "'n";
     return 0;
 }
 
@@ -596,7 +596,7 @@ vector<User> getAllUsers() {
 void mySort(compareFunc func, bool asc) {
     // 1 // int ID;
     // 2 // string Name;
-    // 3 // string Sername;
+    // 3 // string Surname;
     // 4 // string Lastname;
     // 5 // int Course;
     const int n = users.size();
@@ -680,8 +680,8 @@ bool sortUsers(string data) {
         mySort(_sortNames,direction);
         return true;
         break;
-    case 3: // Sername
-        mySort(_sortSernames ,direction);
+    case 3: // Surname
+        mySort(_sortSurnames ,direction);
         return true;
         break;
     case 4: // Lastname
@@ -712,7 +712,7 @@ bool sortUsers(string data) {
     //     break;
     // case 3:
     //     sort(users.begin(), users.end(),[asc](const User& a, const User& b){
-    //         return compareString(a.Sername, b.Sername, asc);
+    //         return compareString(a.Surname, b.Surname, asc);
     //     });
     //     break;
     // case 4:
@@ -740,8 +740,8 @@ bool _sortMarks(int i1, int i2, int mark) {
 bool _sortNames(int i1, int i2) {
     return compareString(users[i1].Name, users[i2].Name);
 }
-bool _sortSernames(int i1, int i2) {
-    return compareString(users[i1].Sername, users[i2].Sername);
+bool _sortSurnames(int i1, int i2) {
+    return compareString(users[i1].Surname, users[i2].Surname);
 }
 bool _sortLastnames(int i1, int i2) {
     return compareString(users[i1].Lastname, users[i2].Lastname);

@@ -10,7 +10,7 @@ using namespace std;
 // struct User {
 //     int ID;
 //     string Name;
-//     string Sername;
+//     string Surname;
 //     string Lastname;
 //     int Course;
 //     vector<int> Marks;

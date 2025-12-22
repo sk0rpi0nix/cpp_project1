@@ -1,7 +1,7 @@
-add <NAME> <SERNAME> <LASTNAME> <COURSE> <MARK1> <MARK2> <MARK3> <MARK4>
-    Add new user with fields NAME,SERNAME,LASTNAME,COURSE,MARK1,MARK2,MARK3,MARK4.
+add <NAME> <SURNAME> <LASTNAME> <COURSE> <MARK1> <MARK2> <MARK3> <MARK4>
+    Add new user with fields NAME,SURNAME,LASTNAME,COURSE,MARK1,MARK2,MARK3,MARK4.
 
-update {NAME | _} {SERNAME | _} {LASTNAME | _} {COURSE | _} {MARK1 | _} {MARK2 | _} {MARK3 | _} {MARK4 | _}
+update {NAME | _} {SURNAME | _} {LASTNAME | _} {COURSE | _} {MARK1 | _} {MARK2 | _} {MARK3 | _} {MARK4 | _}
     Update user's fields or leave them unchanged.
 
 get <ID>

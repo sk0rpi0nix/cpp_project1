@@ -11,7 +11,7 @@ using namespace std;
 struct User {
     int ID;
     string Name;
-    string Sername;
+    string Surname;
     string Lastname;
     int Course;
     array<int,4> Marks;
@@ -57,7 +57,7 @@ bool compareInt(int a, int b, bool asc);
 bool _sortIDs(int i1, int i2);
 bool _sortMarks(int i1, int i2, int mark);
 bool _sortNames(int i1, int i2);
-bool _sortSernames(int i1, int i2);
+bool _sortSurnames(int i1, int i2);
 bool _sortLastnames(int i1, int i2);
 bool _sortCourses(int i1, int i2);
 
